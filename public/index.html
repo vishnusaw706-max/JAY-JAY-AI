@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="hi"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#10152b"><link rel="manifest" href="manifest.webmanifest">
+<title>JAY JAY AI</title>
+<style>
+:root{--bg:#0b1020;--p:#151e36;--line:#2b395a;--ink:#f4f6ff;--muted:#a2afc9;--blue:#718cff}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at top left,#263b70,transparent 45%),var(--bg);color:var(--ink);font:15px system-ui,"Noto Sans Devanagari",sans-serif}
+.app{max-width:850px;margin:auto;padding:18px 15px 95px}header{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px}
+.logo{display:inline-grid;place-items:center;width:44px;height:44px;border-radius:15px;background:linear-gradient(135deg,#718cff,#4dd4e2);color:#091226;font-weight:900;margin-right:10px}
+.brand{display:flex;align-items:center}.brand b{letter-spacing:1px}.brand small{display:block;color:var(--muted);font-size:10px}
+.hero{padding:24px;border-radius:24px;background:linear-gradient(120deg,#233765,#282354,#164252);border:1px solid #455889}
+.hero small{color:#c4d2ff;letter-spacing:2px;font-weight:bold}.hero h1{font-size:30px;line-height:1.2;margin:12px 0}.hero p{color:#d0d9ef;font-size:13px;line-height:1.6}
+.pill{display:inline-block;border:1px solid #ffffff44;border-radius:20px;padding:6px 10px;font-size:10px;color:#f4dfaa}
+h2{font-size:17px;margin:25px 2px 12px}.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:11px}
+.tile,.panel{background:linear-gradient(145deg,#192440,#111a30);border:1px solid var(--line);border-radius:17px;color:var(--ink)}
+.tile{text-align:left;padding:16px;min-height:125px}.tile i{font-style:normal;font-size:24px;display:block;margin-bottom:12px}.tile b{display:block}.tile small{display:block;color:var(--muted);font-size:11px;margin-top:5px;line-height:1.4}
+.panel{display:none;padding:17px;margin-top:16px}.panel.active{display:block}.head{display:flex;justify-content:space-between;align-items:center}.head h2{margin:0 0 12px}
+button{cursor:pointer;font:inherit}.back{background:#253252;color:white;border:1px solid var(--line);border-radius:10px;padding:7px 11px}
+.note{background:#342d1d;border:1px solid #6b5933;color:#f4dda6;padding:11px;border-radius:11px;font-size:11px;line-height:1.5;margin:10px 0 14px}
+input,textarea,select{width:100%;background:#0c1428;color:white;border:1px solid var(--line);border-radius:11px;padding:12px;margin:5px 0;font:inherit}textarea{min-height:90px}
+.primary{background:linear-gradient(100deg,#718cff,#4bd0dc);color:#071326;border:0;border-radius:11px;padding:12px 16px;font-weight:bold;width:100%;margin-top:8px}
+.chatlog{height:190px;overflow:auto;background:#0c1428;border:1px solid var(--line);border-radius:11px;padding:10px}.msg{padding:9px 11px;margin:7px 0;border-radius:11px;background:#243252;font-size:13px}.user{background:#405bc2;margin-left:15%}
+.preview{max-width:100%;max-height:220px;display:block;margin:12px auto;border-radius:12px}
+nav{position:fixed;bottom:0;left:0;right:0;background:#0b1020ed;border-top:1px solid var(--line);display:flex;justify-content:space-around;padding:12px 4px calc(12px + env(safe-area-inset-bottom))}
+nav button{border:0;background:none;color:#aab8d7;font-size:11px}nav button span{display:block;font-size:20px}
+@media(min-width:650px){.grid{grid-template-columns:repeat(3,1fr)}.hero{padding:32px}.hero h1{font-size:38px}}
+</style></head><body><div class="app">
+<header><div class="brand"><div class="logo">JJ</div><div><b>JAY JAY AI</b><small>YOUR ALL-IN-ONE AI SPACE</small></div></div><button class="back" onclick="openPanel('profile')">👤</button></header>
+<main id="home"><section class="hero"><small>WELCOME TO THE FUTURE</small><h1>आपका AI साथी,<br>एक ही जगह पर।</h1><p>सीखें, बनाएं, सवाल पूछें और अपनी creativity को नई उड़ान दें।</p><span class="pill">● Starter version · AI connection बाकी</span></section>
+<h2>आप क्या करना चाहते हैं?</h2><section class="grid">
+<button class="tile" onclick="openPanel('chat')"><i>💬</i><b>AI Chat</b><small>हिंदी में सवाल पूछें</small></button>
+<button class="tile" onclick="openPanel('photo')"><i>🎨</i><b>Photo Studio</b><small>फोटो अपलोड और एडिटिंग</small></button>
+<button class="tile" onclick="openPanel('video')"><i>🎬</i><b>Video Studio</b><small>वीडियो टूल्स</small></button>
+<button class="tile" onclick="openPanel('study')"><i>📚</i><b>AI Study</b><small>नोट्स और अभ्यास</small></button>
+<button class="tile" onclick="openPanel('coding')"><i>💻</i><b>AI Coding</b><small>HTML, Python और अन्य कोड</small></button>
+<button class="tile" onclick="openPanel('profile')"><i>👤</i><b>My Profile</b><small>अकाउंट और सेटिंग्स</small></button>
+</section></main>
+<section class="panel" id="chat"><div class="head"><h2>💬 AI Chat</h2><button class="back" onclick="home()">← वापस</button></div><div class="note">यह UI डेमो है। असली AI जवाब के लिए सुरक्षित backend/API जोड़नी होगी। API key HTML में न रखें।</div><div class="chatlog" id="log"><div class="msg">नमस्ते! मैं JAY JAY AI हूँ। AI सेवा जुड़ने के बाद सवालों के जवाब दे सकूँगा।</div></div><textarea id="question" placeholder="अपना सवाल लिखें..."></textarea><button class="primary" onclick="send()">भेजें ↑</button></section>
+<section class="panel" id="photo"><div class="head"><h2>🎨 Photo Studio</h2><button class="back" onclick="home()">← वापस</button></div><div class="note">फोटो preview उपलब्ध है। AI editing के लिए image API जोड़नी होगी।</div><input type="file" accept="image/*" onchange="preview(this,'img')"><img id="img" class="preview" hidden><textarea placeholder="फोटो में क्या बदलाव चाहिए?"></textarea><button class="primary" onclick="alert('AI Photo API अभी connect नहीं है।')">AI से एडिट करें</button></section>
+<section class="panel" id="video"><div class="head"><h2>🎬 Video Studio</h2><button class="back" onclick="home()">← वापस</button></div><div class="note">वीडियो upload preview उपलब्ध है। AI video generation के लिए provider/API चाहिए।</div><input type="file" accept="video/*" onchange="preview(this,'vid')"><video id="vid" class="preview" controls hidden></video><textarea placeholder="वीडियो का idea लिखें..."></textarea><button class="primary" onclick="alert('AI Video service अभी connect नहीं है।')">वीडियो बनाएं</button></section>
+<section class="panel" id="study"><div class="head"><h2>📚 AI Study</h2><button class="back" onclick="home()">← वापस</button></div><div class="note">AI Study backend connection अगला चरण है।</div><textarea placeholder="सवाल या chapter का नाम लिखें..."></textarea><button class="primary" onclick="alert('AI Study API अभी connect नहीं है।')">समझाएं</button></section>
+<section class="panel" id="coding"><div class="head"><h2>💻 AI Coding</h2><button class="back" onclick="home()">← वापस</button></div><div class="note">AI code generation और execution सुरक्षित server पर जोड़े जाएँगे।</div><select><option>HTML</option><option>CSS</option><option>JavaScript</option><option>Python</option></select><textarea placeholder="कोड या coding सवाल लिखें..."></textarea><button class="primary" onclick="alert('AI Coding API अभी connect नहीं है।')">AI से मदद लें</button></section>
+<section class="panel" id="profile"><div class="head"><h2>👤 My Profile</h2><button class="back" onclick="home()">← वापस</button></div><div class="note">Login और cloud sync को बाद में Firebase Authentication से जोड़ा जा सकता है।</div></section>
+<p style="text-align:center;color:#71809f;font-size:10px;margin-top:25px">JAY JAY AI · Starter build</p></div>
+<nav><button onclick="home()"><span>⌂</span>Home</button><button onclick="openPanel('chat')"><span>✧</span>Chat</button><button onclick="openPanel('photo')"><span>▧</span>Studio</button><button onclick="openPanel('study')"><span>▤</span>Study</button><button onclick="openPanel('coding')"><span>⌘</span>Code</button></nav>
+<script>
+function openPanel(id){document.getElementById('home').style.display='none';document.querySelectorAll('.panel').forEach(x=>x.classList.remove('active'));document.getElementById(id).classList.add('active');scrollTo(0,0)}
+function home(){document.getElementById('home').style.display='block';document.querySelectorAll('.panel').forEach(x=>x.classList.remove('active'));scrollTo(0,0)}
+function send(){let t=document.getElementById('question'),v=t.value.trim();if(!v)return;let log=document.getElementById('log');let u=document.createElement('div');u.className='msg user';u.textContent=v;log.appendChild(u);let a=document.createElement('div');a.className='msg';a.textContent='आपका संदेश demo में दिखा। असली जवाब के लिए AI backend connect करना बाकी है।';log.appendChild(a);t.value='';log.scrollTop=log.scrollHeight}
+function preview(i,id){if(!i.files[0])return;let e=document.getElementById(id);e.src=URL.createObjectURL(i.files[0]);e.hidden=false}
+if('serviceWorker'in navigator&&location.protocol.startsWith('http'))addEventListener('load',()=>navigator.serviceWorker.register('./sw.js').catch(()=>{}));
+</script></body></html>
