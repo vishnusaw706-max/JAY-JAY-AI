@@ -1,0 +1,10 @@
+{
+  "name": "JAY JAY AI",
+  "short_name": "JAY JAY AI",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0b1020",
+  "theme_color": "#10152b",
+  "description": "JAY JAY AI all-in-one learning and creativity app",
+  "icons": []
+}
