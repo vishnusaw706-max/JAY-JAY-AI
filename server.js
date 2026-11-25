@@ -53,6 +53,6 @@ app.post("/api/chat", async (req, res) => {
 });
 
 app.use(express.static(path.join(__dirname, "public")));
-app.get("*", (_req, res) => res.sendFile(path.join(__dirname, "public", "index.html")));
+app.get("/{*splat}", (_req, res) => res.sendFile(path.join(__dirname, "public", "index.html")));
 
 app.listen(PORT, () => console.log(`JAY JAY AI server listening on ${PORT}`));
